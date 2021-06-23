@@ -1,0 +1,31 @@
+if __name__ == '__main__':
+    lists = []
+    n = int(input())
+    
+    for _ in range(n):
+        in1 = input().split()
+        if len(in1) == 1:
+            if in1[0] == 'sort':
+                lists.sort() 
+            elif in1[0] == 'print':
+                print(lists)
+            elif in1[0] == 'pop':
+                lists.pop()
+            elif in1[0] == 'reverse':
+                lists.reverse()   
+            else:
+                print('command unknown')
+        else:
+            method = in1.pop(0)
+            in2 = [int(item) for item in in1]
+            if method == 'insert':
+                lists.insert(in2[0], in2[1]) 
+            elif method == 'append':
+                lists.append(in2[0])
+            elif method == 'remove':
+                if in2[0] in lists:
+                    lists.remove(in2[0])
+                else:
+                    print('Number not found')
+            else:
+                print('command not found')
